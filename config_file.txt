@@ -1,0 +1,63 @@
+sample_name=16_01291_one
+sample_fastq_dir=/mnt/cnv/fastq/sample
+control_name=16_00577
+control_fastq_dir=/mnt/cnv/fastq/control
+final_results_folder=/home/hadoop/16_01291_one_results
+# tso_reference.bed must have the fourth column  (name column)
+ref_pileup=/mnt/cnv/tso_reference_aug2018.bed
+exons_bed=/mnt/cnv/subset.bed
+# Number of references to use
+num_in_sample_references=4
+# Min number reference that need to contain a variant for it to be called
+min_num_variant_references=2
+# Ordered genes (comma delimited)
+ordered_genes=FANCA:GJB6:FANCC
+username=onson001
+email=gonsongo@macalester.edu
+# Postgres Credentials
+psql_host=localhost
+psql_port=5432
+psql_db=cnv
+psql_user=insert_only
+psql_passwd=yy
+psql_insert_tb=identified_variant_data
+# ###################################################### 
+# Advanced users
+hdfs_dir=/user/hadoop/cnv
+hdfs_hg19_compressed=/user/hadoop/cnv/hg19_canonical_PARmaskedonchrY.tar.gz
+genome_extention=.fasta
+hdfs_picard_jar_path=/user/hadoop/cnv/picard.jar
+training_data=/mnt/cnv/het_del_training_aug2018.txt
+# NOTE: The temp folder you specify below has to be present and accessible
+# in slave nodes. /tmp is usually present and writablein slave nodes. If you
+# want to use a different folder, or /tmp is not available, you will need to 
+# create one using a bootstrap script
+temp_dir=/tmp
+R_libs=/R_libs
+R_scripts=/mnt/cnv
+# See http://www.acgt.me/blog/2015/3/17/more-madness-with-mapq-scores-aka-why-bioinformaticians-hate-poor-and-incomplete-software-documentation
+# 0 = maps to 5 or more locations, 1 = maps to 3-4 locations, 3 = maps to 2 locations. We are using 3 as the filter because we 
+# want reads that map to 2 locations. We are using the samtools view -q filter, (-q INT   only include reads with mapping quality >= INT [0])
+mapping_quality_filter=3
+min_control_coverage=20
+debug_mode=0
+# NOTE: There is a bug in the prog that needs to be fixed. If you specify
+# only one hadoop node, and user has just one pair of fastq files, you end
+# up with just one BAM and samtools merge command fails
+number_partitions=2
+SubSampleNumber=2000
+r1_signature=R1
+r2_signature=R2
+fastq_extension=.fastq
+window_length=60
+het_del_min_filter=0.25
+het_del_max_filter=0.75
+gain_min_filter=1.2
+het_lengh_threshold=180
+hom_lengh_threshold=180
+gain_lengh_threshold=800
+number_threads=4
+num_default_reducers=40
+cran_site=https://cran.r-project.org
+mergebam_timeout=21600000
+inputfile_timeout=21600000

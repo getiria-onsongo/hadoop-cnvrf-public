@@ -1,0 +1,5 @@
+config_aws_16_01291_one.txt
+16_01291_one_run_cnv_aws.sh
+fastq/*
+hg19_canonical_PARmaskedonchrY*
+*~
