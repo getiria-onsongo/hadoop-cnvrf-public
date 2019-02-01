@@ -6,7 +6,7 @@ This Hadoop based implementation can rapidly scale to analyze large datasets suc
 and whole-genome data. 
 
 ### Prerequisites
-These instructions assume you have a hadoop cluster up and running with all the dependency software installed. If you have your own cluster, see [installing dependency software](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Installing-dependency-software) for instruction on how to install required software. If you are using Amazon Elastic Map Reduce framework, see [launching EMR cluster] ()for instructions on launching a Hadoop cluster on Amazon. We provide an Amazon Machine Image (AMI) with depedency software installed. 
+These instructions assume you have a hadoop cluster up and running with dependency software installed. If you have your own cluster, see [installing dependency software](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Installing-dependency-software) for instruction on how to install required software. If you using Amazon's Elastic Map Reduce framework, we provide an image (Amazon Machine Image) with dependency software installed. See [launching hadoop on Amazon using EMR](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Launching-Hadoop-on-Amazon-using-Elastic-Map-Reduce-Framework)for instructions on launching a Hadoop cluster on Amazon using their EMR framework. 
 
 <!--
 ## Getting Started
