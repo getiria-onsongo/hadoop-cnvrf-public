@@ -10,6 +10,11 @@ These instructions assume you have a hadoop cluster up and running with dependen
 
 ### Installing
 
+```bash
+s = "Bash syntax highlighting"
+print s
+```
+
 <!--
 ## Getting Started
 
