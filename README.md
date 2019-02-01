@@ -11,8 +11,9 @@ These instructions assume you have a hadoop cluster up and running with dependen
 ### Installing
 
 ```bash
-s = "Bash syntax highlighting"
-print s
+$ git clone https://github.com/bigdatagenomics/adam.git
+$ cd adam
+$ mvn install
 ```
 
 <!--
