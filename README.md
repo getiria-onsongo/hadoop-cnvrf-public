@@ -103,4 +103,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 -->
 
-## Instructions coming soon...
+## We are working on instructions for installing and testing Hadoop-CNV-RF. They should be completed in a few weeks.  
