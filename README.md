@@ -52,7 +52,7 @@ ftp> mget chromFa.tar.gz chromFa.tar.gz
 
 Once the download is complete. Exit the ftp shell. Below is a screenshot of a successful download. 
 
-[[https://github.com/getiria-onsongo/hadoop-cnvrf-public/blob/master/userguide/iam_group.png|alt=IamGroup]]
+![Screenshot](userguide/iam_group.png)
 
 <!--
 ## Getting Started
