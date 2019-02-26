@@ -17,7 +17,10 @@ $ git clone https://github.com/getiria-onsongo/hadoop-cnvrf-public.git
 
 ### Prepare reference genome
 
-
+A copy of the reference genome needs to be distributed to all cluster node. This pipeline uses BWA and Bowtie2 both of which require 
+the reference genome (fasta file) to be indexed. Below are instructions for indexing a reference genome using both BWA and 
+Bowtie2. We will download and index the hg19 reference genome for both BWA and Bowtie2. For convenience, both indices will be stored 
+in the same folder. NOTE. The same steps can be used to index a custom reference genome. 
 
 <!--
 ## Getting Started
