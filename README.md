@@ -52,7 +52,7 @@ ftp> mget chromFa.tar.gz chromFa.tar.gz
 
 Once the download is complete. Exit the ftp shell. Below is a screenshot of a successful download. 
 
-![Screenshot](userguide/iam_group.png)
+![FTPinstructions](userguide/ftp_one.png)
 
 <!--
 ## Getting Started
