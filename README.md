@@ -16,11 +16,43 @@ $ git clone https://github.com/getiria-onsongo/hadoop-cnvrf-public.git
 ```
 
 ### Prepare reference genome
-
+#### Download fasta files from UCSC. 
 A copy of the reference genome needs to be distributed to all cluster node. This pipeline uses BWA and Bowtie2 both of which require 
 the reference genome (fasta file) to be indexed. Below are instructions for indexing a reference genome using both BWA and 
 Bowtie2. We will download and index the hg19 reference genome for both BWA and Bowtie2. For convenience, both indices will be stored 
 in the same folder. NOTE. The same steps can be used to index a custom reference genome. 
+
+Since we will be using BWA and Bowtie2 to create these indices, the easiest approach is to log into your master node. It should have BWA and 
+Bowtie2 installed. 
+
+Make sure you have ftp installed. If not, use the command below to install ftp. 
+
+```bash
+$ sudo yum install ftp -y
+```
+
+Use the steps below to download hg19 fasta file from [UCSC](http://hgdownload.cse.ucsc.edu/downloads.html). These 
+instructions have been pulled from [this link]((http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/)). 
+
+* FTP to hgdownload.soe.ucsc.edu. As of the creating of these instructions, the username is **anonymous** and the password if 
+your email address. Enter the command below. You will prompted to enter a username and password. 
+
+```bash
+$ ftp hgdownload.soe.ucsc.edu
+```
+* Once you've successfully logged in, change directory to the one containing fasta files. 
+```bash
+ftp> cd goldenPath/hg19/bigZips 
+```
+* Get fasta files for all the chromosomes. If asked whether you want to download files, type Y and press enter. 
+
+```bash
+ftp> mget chromFa.tar.gz chromFa.tar.gz  
+```
+
+Once the download is complete. Exit the ftp shell. Below is a screenshot of a successful download. 
+
+[[https://github.com/getiria-onsongo/hadoop-cnvrf-public/blob/master/userguide/iam_group.png|alt=IamGroup]]
 
 <!--
 ## Getting Started
