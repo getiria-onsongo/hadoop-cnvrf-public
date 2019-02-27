@@ -26,9 +26,9 @@ Bowtie2 installed.
 $ sudo yum install ftp -y
 ```
 
-Before you download hg19, make sure you have enough space on your machine. If you used the instructions in [launching hadoop on Amazon using EMR](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Launching-Hadoop-on-Amazon-using-Elastic-Map-Reduce-Framework) to start
+Before you download hg19, make sure you have enough space on your machine. If you used instructions in [launching hadoop on Amazon using EMR](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Launching-Hadoop-on-Amazon-using-Elastic-Map-Reduce-Framework) to start
 your cluster, the default user (**hadoop**) is mounted on the root volume which is 10GB and not enough disk space to index the genome. The steps
-below illustrate how to switch to the mounted drive (**mnt**) which the 200GB specificied when launching the cluster. 
+below illustrate how to switch to the mounted drive (**mnt**) with the 200GB specificied when launching the cluster. 
 
 * Switch to the mounted EBS 
 ```bash
@@ -60,7 +60,12 @@ ftp> cd goldenPath/hg19/bigZips
 ftp> mget chromFa.tar.gz chromFa.tar.gz  
 ```
 
-Once the download is complete. Exit the ftp shell. Below is a screenshot of a successful download. 
+* Once the download is complete. Exit the ftp shell. 
+```bash
+ftp> exit
+```
+
+Below is a screenshot of a successful download. 
 
 ![FTPinstructions](userguide/ftp_one.png)
 
@@ -73,6 +78,31 @@ $ tar -zxvf chromFa.tar.gz
 * Combine individual fasta (.fa) files into a single fasta file (hg19.fa). 
 ```bash
 $ cat *.fa > hg19.fa
+```
+
+* Create a directory to hold the indices. 
+```bash
+$ mkdir hg19_index
+```
+
+* Move the single fasta file (hg19.fa) into the directory you just created.   
+```bash
+$ mv hg19.fa hg19_index
+```
+
+* Switch directories into the one containing the single fasta file.   
+```bash
+$ cd hg19_index
+```
+
+* Create Bowtie2 index.   
+```bash
+bowtie2-build hg19.fa hg19
+```
+
+* Create BWA index.   
+```bash
+bwa index -a bwtsw hg19.fa 
 ```
 
 ### Installing
