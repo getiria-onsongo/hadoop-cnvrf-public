@@ -20,10 +20,25 @@ in the same folder. NOTE. The same steps can be used to index a custom reference
 Since we will be using BWA and Bowtie2 to create these indices, the easiest approach is to log into your master node. It should have BWA and 
 Bowtie2 installed. 
 
-Make sure you have ftp installed. If not, use the command below to install ftp. 
+* Make sure you have ftp installed. If not, use the command below to install ftp. 
 
 ```bash
 $ sudo yum install ftp -y
+```
+
+Before you download hg19, make sure you have enough space on your machine. If you used the instructions in [launching hadoop on Amazon using EMR](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Launching-Hadoop-on-Amazon-using-Elastic-Map-Reduce-Framework) to start
+your cluster, the default user (**hadoop**) is mounted on the root volume which is 10GB and not enough disk space to index the genome. The steps
+below illustrate how to switch to the mounted drive (**mnt**) which the 200GB specificied when launching the cluster. 
+
+* Switch to the mounted EBS 
+```bash
+$ cd /mnt
+```
+
+* Create a directory to hold the genome files and move into that directory. 
+```bash
+$ mkdir hg19
+$ cd hg19
 ```
 
 Use the steps below to download hg19 fasta file from [UCSC](http://hgdownload.cse.ucsc.edu/downloads.html). These 
@@ -50,6 +65,15 @@ Once the download is complete. Exit the ftp shell. Below is a screenshot of a su
 ![FTPinstructions](userguide/ftp_one.png)
 
 ##### Index reference genome 
+* Uncompress the fasta files. 
+```bash
+$ tar -zxvf chromFa.tar.gz
+```
+
+* Combine individual fasta (.fa) files into a single fasta file (hg19.fa). 
+```bash
+$ cat *.fa > hg19.fa
+```
 
 ### Installing
 Once you have a Hadoop cluster up and running with dependency software installed, get a copy of Hadoop-CNV-RF
