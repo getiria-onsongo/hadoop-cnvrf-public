@@ -97,12 +97,12 @@ $ cd hg19_index
 
 * Create Bowtie2 index.   
 ```bash
-bowtie2-build hg19.fa hg19
+$ bowtie2-build hg19.fa hg19
 ```
 
 * Create BWA index.   
 ```bash
-bwa index -a bwtsw hg19.fa 
+$ bwa index -a bwtsw hg19.fa 
 ```
 
 ### Installing
