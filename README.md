@@ -8,15 +8,10 @@ and whole-genome data.
 ### Prerequisites
 These instructions assume you have a hadoop cluster up and running with dependency software installed. If you have your own cluster, see [installing dependency software](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Installing-dependency-software-for-Hadoop-CNV-RF) for instruction on how to install required software. If you are using Amazon's Elastic Map Reduce framework, we provide an image (Amazon Machine Image) with dependency software installed. See [launching hadoop on Amazon using EMR](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Launching-Hadoop-on-Amazon-using-Elastic-Map-Reduce-Framework) for instructions on launching a Hadoop cluster on Amazon with dependency software installed. 
 
-### Installing
-Once you have a Hadoop cluster up and running with dependency software installed, get a copy of Hadoop-CNV-RF
 
-```bash
-$ git clone https://github.com/getiria-onsongo/hadoop-cnvrf-public.git 
-```
 
-### Prepare reference genome
-#### Download fasta files from UCSC. 
+#### Prepare reference genome
+##### Download fasta files from UCSC. 
 A copy of the reference genome needs to be distributed to all cluster node. This pipeline uses BWA and Bowtie2 both of which require 
 the reference genome (fasta file) to be indexed. Below are instructions for indexing a reference genome using both BWA and 
 Bowtie2. We will download and index the hg19 reference genome for both BWA and Bowtie2. For convenience, both indices will be stored 
@@ -53,6 +48,15 @@ ftp> mget chromFa.tar.gz chromFa.tar.gz
 Once the download is complete. Exit the ftp shell. Below is a screenshot of a successful download. 
 
 ![FTPinstructions](userguide/ftp_one.png)
+
+##### Index reference genome 
+
+### Installing
+Once you have a Hadoop cluster up and running with dependency software installed, get a copy of Hadoop-CNV-RF
+
+```bash
+$ git clone https://github.com/getiria-onsongo/hadoop-cnvrf-public.git 
+```
 
 <!--
 ## Getting Started
