@@ -77,7 +77,9 @@ $ tar -zxvf chromFa.tar.gz
 
 * Combine individual fasta (.fa) files into a single fasta file (hg19.fa). 
 ```bash
-$ cat *.fa > hg19.fa
+$ cat chr1.fa chr2.fa chr3.fa chr4.fa chr5.fa chr6.fa chr7.fa chr8.fa chr9.fa \
+chr10.fa chr11.fa chr12.fa chr13.fa chr14.fa chr15.fa chr16.fa chr17.fa chr18.fa \
+chr19.fa chr20.fa chr21.fa chr22.fa chrM.fa chrX.fa chrY.fa > hg19.fa
 ```
 
 * Create a directory to hold the indices. 
@@ -95,15 +97,46 @@ $ mv hg19.fa hg19_index
 $ cd hg19_index
 ```
 
-* Create Bowtie2 index.   
+* Create Bowtie2 index.   **NOTE:** creating a Bowtie2 index for the whole human genome takes 
+a while. About 2 hours on a machine with with 4 cores and 16GB of RAM. **Fortunately**,
+we only need to do this **once**. 
 ```bash
 $ bowtie2-build hg19.fa hg19
 ```
 
-* Create BWA index.   
+* Create BWA index. This will also take a while. About 1 hr on a machine with 4 cores 
+and 16GB of RAM.  Similar to Bowtie2 index, you only need to do this once. 
 ```bash
 $ bwa index -a bwtsw hg19.fa 
 ```
+
+##### Archive index files for future usage
+To avoid having to create indices everytime you use the software, follow the steps below to 
+archive your indices. 
+
+* Move one directory up and remove sequence file from index folder. 
+```bash
+$ cd ..
+$ hg19_index/hg19.fa hg19.fa
+```
+* Compress folder containing indices
+
+```bash
+$ tar -zcvf hg19_index.tar.gz hg19_index
+```
+If using a cloud instance, copy the compressed folder to your local machine. You can use sftp as shown below
+
+* Exit the SSH terminal connecting you to the cloud instance
+```bash
+$ exit
+```
+
+* Save a copy of the compressed folder to your local machine. Notice the dot (.) at the end. 
+
+```bash
+$ sftp -i myPrivateKey.pem hadoop@xxx.us-west-2.compute.amazonaws.com:/mnt/hg19/hg19_index.tar.gz .
+```
+
 
 ### Installing
 Once you have a Hadoop cluster up and running with dependency software installed, get a copy of Hadoop-CNV-RF
