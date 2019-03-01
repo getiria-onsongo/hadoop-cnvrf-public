@@ -117,7 +117,7 @@ archive your indices.
 * Move one directory up and remove sequence file from index folder. 
 ```bash
 $ cd ..
-$ hg19_index/hg19.fa hg19.fa
+$ mv hg19_index/hg19.fa hg19.fa
 ```
 * Compress folder containing indices
 
@@ -131,18 +131,54 @@ If using a cloud instance, copy the compressed folder to your local machine. You
 $ exit
 ```
 
-* Save a copy of the compressed folder to your local machine. Notice the dot (.) at the end. 
+* Save a copy of the compressed folder to your local machine. Notice the dot (.) at the end. The compressed folder will 
+be about 7GB in size. The transfer might take sometime depending on your internet connection. If you have a wired 
+connection, it is recommended you use it instead of wireless. 
 
 ```bash
-$ sftp -i myPrivateKey.pem hadoop@xxx.us-west-2.compute.amazonaws.com:/mnt/hg19/hg19_index.tar.gz .
+$ scp -i myPrivateKey.pem hadoop@xxx.us-west-2.compute.amazonaws.com:/mnt/hg19/hg19_index.tar.gz .
 ```
 
 
 ### Installing
-Once you have a Hadoop cluster up and running with dependency software installed, get a copy of Hadoop-CNV-RF
+Once you have a Hadoop cluster up and running with dependency software installed, get a copy of Hadoop-CNV-RF. If 
+using an EMR cluster, navigate to the mounted drive first. The root drive has limited disk space. 
+
+* SSH into your machine. 
+
+```bash
+$ ssh -i myPrivateKey.pem hadoop@xxx.us-west-2.compute.amazonaws.com 
+```
+
+* Navigate to mounted drive. 
+```bash
+$ cd /mnt
+```
+
+* Get a copy of Hadoop-CNV-RF. 
 
 ```bash
 $ git clone https://github.com/getiria-onsongo/hadoop-cnvrf-public.git 
+```
+
+* Navigate into program folder. 
+
+```bash
+$ cd hadoop-cnvrf-public
+```
+
+* Navigate into the folder contain test data and uncompress the data. 
+
+```bash
+$ cd data/sample/
+$ gunzip *.gz
+$ cd ../control/
+$ gunzip *.gz
+```
+
+* Navigate back to program directory. 
+```bash
+$ cd /mnt/hadoop-cnvrf-public/
 ```
 
 <!--
