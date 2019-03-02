@@ -180,6 +180,11 @@ $ gunzip *.gz
 ```bash
 $ cd /mnt/hadoop-cnvrf-public/
 ```
+* Launch the analysis. 
+```bash
+$ 
+./run_script.sh
+```
 
 <!--
 ## Getting Started
