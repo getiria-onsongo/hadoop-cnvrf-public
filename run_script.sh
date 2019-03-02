@@ -7,7 +7,7 @@ source config_file.txt
 
 hadoop fs -mkdir $hdfs_dir
 # Change permissions so we can move files
-hadoop fs -chmod -R 777 $hdfs_cnv
+hadoop fs -chmod -R 777 $hdfs_dir
 
 hadoop fs -put $local_hg19_index $hdfs_dir
 hadoop fs -put picard.jar $hdfs_dir
