@@ -59,8 +59,7 @@ $ cd /mnt/hadoop-cnvrf-public/
 ```
 * Launch the analysis. 
 ```bash
-$ 
-./run_script.sh
+$ ./run_script.sh
 ```
 
 <!--
