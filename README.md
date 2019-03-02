@@ -9,8 +9,13 @@ and whole-genome data.
 These instructions assume you have a hadoop cluster up and running with dependency software installed. If you have your own cluster, see [installing dependency software](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Installing-dependency-software-for-Hadoop-CNV-RF) for instruction on how to install required software. If you are using Amazon's Elastic Map Reduce framework, we provide an image (Amazon Machine Image) with dependency software installed. See [launching hadoop on Amazon using EMR](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Launching-Hadoop-on-Amazon-using-Elastic-Map-Reduce-Framework) for instructions on launching a Hadoop cluster on Amazon with dependency software installed. 
 
 
-
 #### Prepare reference genome
+If you have used BWA and Bowtie2 before and already have genome indices, create a folder in your master node and save these
+indices in that folder. Compress the folder and note the location of this compressed folder. If using an EMR cluster, we recommend 
+saving it in /mnt e.g.,  **/mnt/hg19/hg19_index.tar.gz**. 
+
+If you have no experience with BWA and Bowtie2, click this link:  [Preparing Reference Genome](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Preparing-Reference-Genome) for instruction on indexing the hg19 human genome for BWA and Bowtie2. 
+
 ##### Download fasta files from UCSC. 
 A copy of the reference genome needs to be distributed to all cluster node. This pipeline uses BWA and Bowtie2 both of which require 
 the reference genome (fasta file) to be indexed. Below are instructions for indexing a reference genome using both BWA and 
