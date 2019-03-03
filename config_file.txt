@@ -2,7 +2,7 @@ sample_name=sample
 sample_fastq_dir=/mnt/hadoop-cnvrf-public/data/sample
 control_name=control
 control_fastq_dir=/mnt/hadoop-cnvrf-public/data/control
-final_results_folder=/mnt/hadoop-cnvrf-public/data/sample_results
+final_results_folder=/mnt/hadoop-cnvrf-public/sample_results
 # Copy of genome indices
 local_hg19_index=/mnt/hg19/hg19_index.tar.gz
 # tso_reference.bed must have the fourth column  (name column)
