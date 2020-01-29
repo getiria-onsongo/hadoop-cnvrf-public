@@ -2,8 +2,7 @@
 
 This is a Hadoop implementation of [CNV-RF](https://www.ncbi.nlm.nih.gov/pubmed/27597741) a 
 copy number variation (CNV) detection method capableof detecting clinically relevant CNVs at scale. 
-This Hadoop based implementation can rapidly scale to analyze large datasets such as whole-exome 
-and whole-genome data. 
+This Hadoop based implementation can rapidly scale to analyze large datasets such as whole-exome data. 
 
 ### Prerequisites
 These instructions assume you have a hadoop cluster up and running with dependency software installed. If you have your own cluster, see [installing dependency software](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Installing-dependency-software-for-Hadoop-CNV-RF) for instruction on how to install required software. If you are using Amazon's Elastic Map Reduce framework, we provide an image (Amazon Machine Image) with dependency software installed. See [launching hadoop on Amazon using EMR](https://github.com/getiria-onsongo/hadoop-cnvrf-public/wiki/Launching-Hadoop-on-Amazon-using-Elastic-Map-Reduce-Framework) for instructions on launching a Hadoop cluster on Amazon with dependency software installed. 
