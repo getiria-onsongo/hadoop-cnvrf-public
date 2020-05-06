@@ -1,4 +1,4 @@
-# Hadoop-CNV-RF: A Scalable Cloud-Based Copy Number Variation Detection Tool  
+# Hadoop-CNV-RF: A Scalable Copy Number Variation Detection Tool for Next-Generation Sequencing Data 
 
 This is a Hadoop implementation of [CNV-RF](https://www.ncbi.nlm.nih.gov/pubmed/27597741) a 
 copy number variation (CNV) detection method capableof detecting clinically relevant CNVs at scale. 
